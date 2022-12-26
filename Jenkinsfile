@@ -23,10 +23,10 @@ pipeline {
             }
         }
 
-        stage('Building application ') {
+        stage('Building application') {
             steps {
                 script {
-                    sh " docker login -u hacklight -p ${docker_password}"
+                    sh " docker login -u hacklight -p '${docker_password}'"
                     sh " docker build -t hacklight/todo-project-20:${env.TAG} ."
                 }
             }
