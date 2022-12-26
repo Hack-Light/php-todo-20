@@ -4,7 +4,7 @@ pipeline {
     environment {
         TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         max = 20
-        random_num = "${Math.abs(new SecureRandom().nextInt(max + 1))}"
+        random_num = "${Math.abs(new Random().nextInt(max + 1))}"
         docker_password = credentials('dockerhub_password')
     }
 
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Checkout Git') {
             steps {
-                git branch: 'main', credentialsId: '', url: 'https://github.com/Hack-Light/php-todo-20.git'
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/Hack-Light/php-todo-20.git'
             }
         }
 
