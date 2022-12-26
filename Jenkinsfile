@@ -40,14 +40,14 @@ pipeline {
             }
         }
 
-        // stage('Smoke Test') {
-        //     steps {
-        //         script {
-        //             sh 'sleep 60'
-        //             sh 'curl -I 54.167.99.240:8000'
-        //         }
-        //     }
-        // }
+        stage('Smoke Test') {
+            steps {
+                script {
+                    sh 'sleep 60'
+                    sh 'curl -I http://44.204.247.253:8080/'
+                }
+            }
+        }
 
         stage('Publish to Registry') {
             steps {
